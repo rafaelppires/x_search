@@ -1,0 +1,19 @@
+enclave {
+    from "sgx_tstdc.edl" import sgx_thread_wait_untrusted_event_ocall, sgx_thread_set_untrusted_event_ocall; 
+
+    untrusted {
+        int ocall_connect2host([in, string] const char *hname, int port );
+        int ocall_send( int to, [in, size=len] const char *data, size_t len );
+        int ocall_recv( int f, [out, size=len] char *data, size_t len );
+        int ocall_forward( int f, int to );
+        void ocall_print([in,string] const char *str);
+        void ocall_system([in,string] const char *cmd);
+        void ocall_close( int fd );
+    };
+
+    trusted {
+        public int ecall_handlerequest( int fd, [in, size=len] const char *b, size_t len);
+        public void ecall_sgxproxy_init( size_t n, [in, string] const char *h, size_t p, char e, char nw, size_t o );
+    };
+};
+

@@ -1,0 +1,12 @@
+
+Dependencies:
+libcrypto++-dev
+
+To compile for SGX, run:
+
+$ make SGX=1
+
+To compile with debug symbols, run:
+
+$ make DEBUG=1 [SGX=1]
+
