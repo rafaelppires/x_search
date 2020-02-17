@@ -1,9 +1,7 @@
 
 Dependencies:
-```
-libcrypto++-dev
-[sgx_common](https://github.com/rafaelppires/sgx_common)
-```
++ libcrypto++-dev
++ [sgx_common](https://github.com/rafaelppires/sgx_common)
 
 To compile for SGX, run:
 ```
